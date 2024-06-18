@@ -5,7 +5,7 @@ import { useNavigate} from "react-router-dom"
 
 const Topbar = () => {
     const context = useContext(GlobalContext);
-    const {token} = context;
+    const {token, open} = context;
     const navigate = useNavigate()
 
     const handleLogOut = ()=>{
@@ -15,9 +15,9 @@ const Topbar = () => {
     }
 
   return (
-    <div className="w-full h-16 fixed z-20">
-      <div className="w-[80%] mx-auto grid grid-cols-2 h-full border-b border-white/50">
-      <img src={logo} alt="Burger King Logo" className="w-10 h-10 justify-self-end self-center" />
+    <div className={open? "w-full h-16 fixed z-20 duration-500": "w-full h-16 fixed z-20 ml-12 duration-500 md:ml-32"}>
+      <div className="w-[50%] mx-auto grid grid-cols-2 h-full border-b border-white/50">
+      <img src={logo} alt="Burger King Logo" className="w-10 h-10 justify-self-start self-center object-cover object-center" />
       <button onClick={handleLogOut} className="bg-orange-600 text-white rounded-md w-[100px] h-[35px] justify-self-end self-center hover:bg-orange-500">
         Log Out
       </button>

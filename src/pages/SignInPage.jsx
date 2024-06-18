@@ -1,13 +1,13 @@
 import { useState, useContext } from "react";
-import { supabase } from "../client";
+// import { supabase } from "../client";
 import bg from "../images/bg-2.jpg"
 import { Link, useNavigate } from "react-router-dom"
 import logo from "../images/burger-king.png"
 import GlobalContext from "../contexts/GlobalContext";
 
 const SigninPage = () => {
-    const context = useContext(GlobalContext)
-    const {setToken} = context
+    // const context = useContext(GlobalContext)
+    // // const {setToken} = context
     const [formData, setFormData] = useState({email: '', password: ''});
     const navigate = useNavigate()
 
@@ -26,13 +26,13 @@ const SigninPage = () => {
       e.preventDefault();
       try {
         
-        const { data, error } = await supabase.auth.signInWithPassword({
-            email: formData.email,
-            password: formData.password,
-          })
-          if(error) throw error;
-          console.log(data);
-          setToken(data);
+        // const { data, error } = await supabase.auth.signInWithPassword({
+        //     email: formData.email,
+        //     password: formData.password,
+        //   })
+        //   if(error) throw error;
+        //   console.log(data);
+        //   setToken(data);
           navigate('/homepage')
           
     } catch (error) {

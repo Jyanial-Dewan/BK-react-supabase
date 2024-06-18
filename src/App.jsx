@@ -8,6 +8,7 @@ import GlobalContext from "./contexts/GlobalContext"
 
 const App = () => {
   const [token, setToken] = useState(false);
+  const [open, setOpen] = useState(true);
   
 
   if(token) {
@@ -22,11 +23,11 @@ const App = () => {
   },[]);
 
   return (
-    <GlobalContext.Provider value={{token: token, setToken: setToken}}>
+    <GlobalContext.Provider value={{token: token, setToken: setToken, open: open, setOpen:setOpen }}>
       <Routes>
         <Route path="/" element={<SigninPage/>}/>
         <Route path="/signup" element={<SignUpPage/>}/>
-        {token? <Route path="/homepage" element={<HomePage/>}/>: null}
+        <Route path="/homepage" element={<HomePage/>}/>
       </Routes>
     </GlobalContext.Provider>
   )
